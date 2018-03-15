@@ -1,0 +1,52 @@
+{
+  "name": "calendar-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js --env=dev",
+    "test:routes": "mocha tests/routes --env=test --exit",
+    "db:init":
+      "cd node_modules/.bin && knex migrate:latest --env dev && knex seed:run --env dev"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": true
+  },
+  "eslintConfig": {
+    "extends": ["airbnb-base"],
+    "env": {
+      "node": true
+    }
+  },
+  "author": "Andrew Snytko <andrew.snytko@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
+    "eslint": "^4.18.2",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.9.0",
+    "mocha": "^5.0.4",
+    "prettier": "^1.11.1"
+  },
+  "dependencies": {
+    "@koa/cors": "^2.2.1",
+    "bcrypt": "^1.0.3",
+    "jsonwebtoken": "^8.2.0",
+    "knex": "^0.14.4",
+    "koa": "^2.5.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-jwt": "^3.3.0",
+    "koa-logger": "^3.2.0",
+    "koa-router": "^7.4.0",
+    "moment": "^2.21.0",
+    "nodemon": "^1.17.1",
+    "pg": "^7.4.1",
+    "rand-token": "^0.4.0",
+    "rc": "^1.2.5",
+    "react-router-dom": "^4.2.2",
+    "simple-react-app": "^2.0.1"
+  }
+}
