@@ -6,15 +6,16 @@
   "scripts": {
     "dev": "nodemon index.js --env=dev",
     "test:routes": "mocha tests/routes --env=test --exit",
-    "db:init":
-      "cd node_modules/.bin && knex migrate:latest --env dev && knex seed:run --env dev"
+    "db:init": "cd node_modules/.bin && knex migrate:latest --env dev && knex seed:run --env dev"
   },
   "prettier": {
     "singleQuote": true,
     "trailingComma": true
   },
   "eslintConfig": {
-    "extends": ["airbnb-base"],
+    "extends": [
+      "airbnb-base"
+    ],
     "env": {
       "node": true
     }

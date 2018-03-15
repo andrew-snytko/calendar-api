@@ -23,7 +23,7 @@ module.exports.createUser = async (ctx, next) => {
   await next();
 };
 
-module.exports.refreshUserAuthToken = async (ctx, next) => {
+module.exports.refreshUserAuthToken = async ctx => {
   const { accessToken, refreshToken } = ctx.request.body;
   if (!accessToken || !refreshToken) {
     throw new UnauthorizedError();

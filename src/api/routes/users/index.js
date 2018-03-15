@@ -1,5 +1,5 @@
 const Router = require('koa-router');
-const { jwtAuth, getAuthResponse } = require('../../auth');
+const { getAuthResponse } = require('../../auth');
 const { createUser, refreshUserAuthToken } = require('./controller');
 
 const router = new Router();

@@ -4,8 +4,6 @@ const logger = require('koa-logger');
 const bodyParser = require('koa-bodyparser');
 const Router = require('koa-router');
 const cors = require('@koa/cors');
-const path = require('path');
-const fs = require('fs');
 
 const { ServerError, NotFoundError } = require('./src/helpers/error');
 

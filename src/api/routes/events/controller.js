@@ -1,4 +1,4 @@
-const { LogicError, NotFoundError } = require('../../../helpers/error');
+const { LogicError } = require('../../../helpers/error');
 const { SuccessResponse } = require('../../../helpers/response');
 const {
   validateDateTime,

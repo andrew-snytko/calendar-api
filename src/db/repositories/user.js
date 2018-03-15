@@ -8,7 +8,6 @@ const table = () => db('users');
 module.exports.createUser = data => {
   const salt = bcrypt.genSaltSync();
   const hash = bcrypt.hashSync(data.password, salt);
-  const result = {};
   return table()
     .insert(
       {

@@ -38,8 +38,10 @@ class TokenExpiredError extends Error {
   }
 }
 
-module.exports.UnauthorizedError = UnauthorizedError;
-module.exports.NotFoundError = NotFoundError;
-module.exports.LogicError = LogicError;
-module.exports.ServerError = ServerError;
-module.exports.TokenExpiredError = TokenExpiredError;
+module.exports = {
+  UnauthorizedError,
+  NotFoundError,
+  LogicError,
+  ServerError,
+  TokenExpiredError,
+};

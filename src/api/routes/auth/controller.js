@@ -1,4 +1,4 @@
-const { UnauthorizedError, LogicError } = require('../../../helpers/error');
+const { UnauthorizedError } = require('../../../helpers/error');
 const { SuccessResponse } = require('../../../helpers/response');
 const { getUserFull } = require('../../../db/repositories/user');
 const { destroyToken } = require('../../../db/repositories/token');

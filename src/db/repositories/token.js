@@ -18,6 +18,7 @@ module.exports.getToken = criteria => {
     .select()
     .where(criteria)
     .first()
+    .then(checkExistence)
     .catch(err => {
       throw new ServerError('Unable to get token');
     });
