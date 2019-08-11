@@ -22,7 +22,7 @@ const {
 const { getEventType } = require('../../../db/repositories/eventType');
 const { Event } = require('../../../services/event');
 
-module.exports.createEvent = async ctx => {
+module.exports.createEvent = async (ctx) => {
   const {
     description = '',
     startDate,
@@ -58,13 +58,15 @@ module.exports.createEvent = async ctx => {
   ctx.body = new Event({ ...event, eventTypeName: eventType.name });
 };
 
-module.exports.updateEvent = async ctx => {
+module.exports.updateEvent = async (ctx) => {
   const eventId = ctx.request.ctx.params.id;
   if (isNaN(eventId)) {
     throw new LogicError('Invalid event id');
   }
   const event = await getEvent({ id: eventId });
-  const { description, startDate, endDate, type } = ctx.request.body;
+  const {
+ description, startDate, endDate, type 
+} = ctx.request.body;
   const newEventData = {};
   let eventType = { id: event.eventTypeId };
   if (description !== undefined) {
@@ -110,7 +112,7 @@ module.exports.updateEvent = async ctx => {
   });
 };
 
-module.exports.getEventsForToday = async ctx => {
+module.exports.getEventsForToday = async (ctx) => {
   const { offset = 0, limit = 10 } = ctx.request.ctx.params;
   const startDate = getUTCDate(new Date());
   const endDate = getUTCEndDay(startDate);
@@ -126,7 +128,7 @@ module.exports.getEventsForToday = async ctx => {
   };
 };
 
-module.exports.getEventsForCurrentWeek = async ctx => {
+module.exports.getEventsForCurrentWeek = async (ctx) => {
   const { offset = 0, limit = 10 } = ctx.request.ctx.params;
   const startDate = getUTCDate(new Date());
   const endDate = getUTCEndWeek(startDate);
@@ -142,7 +144,7 @@ module.exports.getEventsForCurrentWeek = async ctx => {
   };
 };
 
-module.exports.getEventsForCurrentMonth = async ctx => {
+module.exports.getEventsForCurrentMonth = async (ctx) => {
   const { offset = 0, limit = 10 } = ctx.request.ctx.params;
   const startDate = getUTCDate(new Date());
   const endDate = getUTCEndMonth(startDate);
@@ -158,7 +160,7 @@ module.exports.getEventsForCurrentMonth = async ctx => {
   };
 };
 
-module.exports.getEventsForTimeRange = async ctx => {
+module.exports.getEventsForTimeRange = async (ctx) => {
   const { date, offset = 0, limit = 10 } = ctx.request.ctx.params;
   if (!validateDate(date)) {
     throw new LogicError('Invalid date');
@@ -177,7 +179,7 @@ module.exports.getEventsForTimeRange = async ctx => {
   };
 };
 
-module.exports.deleteEvent = async ctx => {
+module.exports.deleteEvent = async (ctx) => {
   const eventId = ctx.request.ctx.params.id;
   if (isNaN(eventId)) {
     throw new LogicError('Invalid event id');

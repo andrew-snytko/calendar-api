@@ -1,4 +1,5 @@
 const chai = require('chai');
+
 const should = chai.should();
 const chaiHttp = require('chai-http');
 const db = require('../../src/db');
@@ -15,23 +16,19 @@ const testUser = {
 };
 
 describe('routes: auth', () => {
-  beforeEach(() => {
-    return db.migrate
+  beforeEach(() => db.migrate
       .rollback()
       .then(() => {
         return db.migrate.latest();
       })
       .then(() => {
         return db.seed.run();
-      });
-  });
-  afterEach(() => {
-    return db.migrate.rollback();
-  });
+      }));
+  afterEach(() => db.migrate.rollback());
 
   describe(`POST ${PATH}`, () => {
-    it('should authenticate user with valid email and password', done => {
-      createUser(testUser).then(user => {
+    it('should authenticate user with valid email and password', (done) => {
+      createUser(testUser).then((user) => {
         chai
           .request(server)
           .post(`${PATH}`)
@@ -51,8 +48,8 @@ describe('routes: auth', () => {
       });
     });
 
-    it('should not authenticate user with invalid email', done => {
-      createUser(testUser).then(user => {
+    it('should not authenticate user with invalid email', (done) => {
+      createUser(testUser).then((user) => {
         chai
           .request(server)
           .post(`${PATH}`)
@@ -70,8 +67,8 @@ describe('routes: auth', () => {
       });
     });
 
-    it('should not authenticate user with invalid password', done => {
-      createUser(testUser).then(user => {
+    it('should not authenticate user with invalid password', (done) => {
+      createUser(testUser).then((user) => {
         chai
           .request(server)
           .post(`${PATH}`)
@@ -91,8 +88,8 @@ describe('routes: auth', () => {
   });
 
   describe(`POST ${PATH}/logout`, () => {
-    it('should logout user with valid access token', done => {
-      createUser(testUser).then(user => {
+    it('should logout user with valid access token', (done) => {
+      createUser(testUser).then((user) => {
         chai
           .request(server)
           .post(`${PATH}`)
@@ -117,8 +114,8 @@ describe('routes: auth', () => {
       });
     });
 
-    it('should not logout user with invalid access token', done => {
-      createUser(testUser).then(user => {
+    it('should not logout user with invalid access token', (done) => {
+      createUser(testUser).then((user) => {
         chai
           .request(server)
           .post(`${PATH}`)
