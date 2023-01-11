@@ -36,7 +36,7 @@
     "@koa/cors": "^3.0.0",
     "bcrypt": "^3.0.6",
     "jsonwebtoken": "^8.5.1",
-    "knex": "^0.19.1",
+    "knex": "^2.4.0",
     "koa": "^2.7.0",
     "koa-bodyparser": "^4.2.1",
     "koa-jwt": "^3.6.0",
